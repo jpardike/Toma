@@ -12,8 +12,22 @@ class Tomagatchi {
     }
 }
 
+const createToma = function (name) {
+    const toma = new Tomagatchi(name);
+    console.log(toma);
+}
+
+const generateToma = function () {
+    const $toma = $('<img />');
+    $toma.addClass('toma');
+    $toma.attr('src', 'https://picsum.photos/id/1025/50');
+    $('.gameplay-section').append($toma);
+}
+
 // button that starts game
 $('.play-button').on('click', function() {
     // console.log('button clicked');
+    createToma('Toma');
+    generateToma();
 });
 
