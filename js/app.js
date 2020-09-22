@@ -1,5 +1,7 @@
 
 
+
+// Tomagatchi class
 class Tomagatchi {
     constructor(name) {
         this.name = name;
@@ -9,3 +11,9 @@ class Tomagatchi {
         this.boredom = 1;
     }
 }
+
+// button that starts game
+$('.play-button').on('click', function() {
+    // console.log('button clicked');
+});
+
