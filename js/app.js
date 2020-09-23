@@ -31,11 +31,24 @@ const generateToma = function () {
     $('.gameplay-section').append($toma);
 }
 
+// create right buttons function
+const rightButtonsGenerator = function () {
+    const $newDiv = $('<div />');
+    $newDiv.addClass('right-buttons');
+    $('.gameplay-section').append($newDiv);
+    const $feedButton = $('<button>FEED</button>');
+    const $sleepButton = $('<button>SLEEP</button>');
+    const $exerciseButton = $('<button>EXERCISE</button>');
+    $newDiv.append($feedButton);
+    $newDiv.append($sleepButton);
+    $newDiv.append($exerciseButton);
+}
 
 // button that starts game
 $('.play-button').on('click', function() {
     // console.log('button clicked');
     createToma('Toma');
     generateToma();
+    rightButtonsGenerator();
 });
 
