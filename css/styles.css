@@ -22,6 +22,10 @@ p {
     margin: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .gameplay-section {
     background-color: gainsboro;
     height: 75vh;
