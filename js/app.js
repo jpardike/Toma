@@ -15,27 +15,12 @@ class Tomagatchi {
 };
 
 // function to create tomagatchi and display metrics
-const createToma = function () {
-    $nameButton.on('click', function (e) {
-        e.preventDefault();
 
-        const inputVal =  $nameInput.val();
+    
 
-        console.log(inputVal);
-
-        if (inputVal === '') {
-            toma = new Tomagatchi('Toma');
-            updateMetrics();
-            console.log(toma.name);
-        } else {
-            toma = new Tomagatchi(inputVal);
-            updateMetrics();
-            console.log(toma.name);
-        }
-    })
-};
 
 const updateMetrics = function () {
+    $('.toma-name').text(toma.name);
     $('.age-text').text(`AGE: ${toma.age}`);
     $('.hunger-text').text(`HUNGER: ${toma.hunger}`);
     $('.sleepiness-text').text(`SLEEPY: ${toma.sleepiness}`);
@@ -89,15 +74,23 @@ const rightButtonsController = function () {
     });
 };
 
+$('.start-button').on('click', function (e) {
+    e.preventDefault();
 
+    const inputVal =  $nameInput.val();
 
+    console.log(inputVal);
 
-// button that starts game
-$('.play-button').on('click', function() {
-    // console.log('button clicked');
+    if (inputVal === '') {
+        toma = new Tomagatchi('Toma');
+        updateMetrics();
+        console.log(toma.name);
+    } else {
+        toma = new Tomagatchi(inputVal);
+        updateMetrics();
+        console.log(toma.name);
+    }
     $('section').removeClass('hidden');
-    $('form').removeClass('hidden');
-    createToma();
     generateToma();
     rightButtonsController();
 });

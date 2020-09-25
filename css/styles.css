@@ -5,21 +5,50 @@
 body {
     font-family: sans-serif;
     font-size: 16px;
-    background: black;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../images/pexels-francesco-ungaro-1671324.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: lightslategray;
     padding: 0;
     margin: 0;
     height: 100vh;
+    text-align: center;
 }
 
 h1 {
+    font-family: 'Nova Square', sans-serif;
+    font-size: 8em;
+    color: #68D6C3;
+    padding: 12% 0 .4em 0;
+    margin: 0;
+    position: relative;
+}
+
+p {
+    font-family: 'Courier Prime', monospace;
     padding: 0;
     margin: 0;
 }
 
-p {
-    padding: 0;
-    margin: 0;
+.name-input {
+    font-family: 'Courier Prime', monospace;
+    display: block;
+    border: none;
+    border-radius: 0;
+    background-color: rgba(66, 27, 58, .8);
+    color: lightyellow;
+    margin: 0 auto .4em auto;
+    max-width: 20em;
+    font-size: 3em;
+    padding: .5em 1em;
+}
+
+.start-button {
+    font-family: 'Nova Square', sans-serif;
+    font-size: 2em;
+    padding: .5em 1em;
+    background-color: #68D6C3;
+    color: rgb(66, 27, 58);
 }
 
 .hidden {
