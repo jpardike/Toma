@@ -172,6 +172,10 @@ const ageTimer = function () {
             $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Rock2.png')
             $('.message-text').text(`GAME OVER`);
             $toma.css({'animation': 'none'});
+            $('.button-feed').remove();
+            $('.button-sleep').remove();
+            $('.button-exercise').remove();
+            
             clearInterval(timer);
         }
 
