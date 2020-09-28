@@ -19,7 +19,8 @@ h1 {
     font-family: 'Nova Square', sans-serif;
     font-size: 8em;
     color: #68D6C3;
-    padding: 12% 0 .4em 0;
+    padding-top: 12%;
+    padding-bottom: .4em;
     margin: 0;
     position: relative;
 }
@@ -51,9 +52,7 @@ p {
     color: rgb(66, 27, 58);
 }
 
-.hidden {
-    display: none;
-}
+
 
 .gameplay-section {
     background-color: gainsboro;
@@ -100,4 +99,8 @@ p {
     margin: auto;
     width: 100%;
     height: auto;
+}
+
+.hidden {
+    display: none;
 }

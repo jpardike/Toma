@@ -2,15 +2,16 @@
 let toma = null;
 const $nameInput = $('.name-input');
 const $nameButton = $('.name-button');
+let ageCounter = 0;
 
 // Tomagatchi class
 class Tomagatchi {
     constructor(name) {
         this.name = name;
         this.age = 0;
-        this.hunger = 10;
-        this.sleepiness = 10;
-        this.boredom = 10;
+        this.hunger = 0;
+        this.sleepiness = 0;
+        this.boredom = 0;
     }
 };
 
@@ -74,6 +75,27 @@ const rightButtonsController = function () {
     });
 };
 
+// Age Timer Function
+
+const ageTimer = function () {
+    const timer = setInterval(function () {
+        toma.hunger += 2;
+        toma.sleepiness += 2;
+        toma.boredom += 2;
+        ageCounter += 1;
+        updateMetrics();
+
+        if (toma.hunger && toma.sleepiness && toma.boredom === 10) {
+            $('.message-text').text(`GAME OVER`);
+        }
+
+        if (ageCounter === 10) {
+            toma.age++;
+            ageCounter = 0;
+        }
+    }, 1000);
+}
+
 $('.start-button').on('click', function (e) {
     e.preventDefault();
 
@@ -85,13 +107,18 @@ $('.start-button').on('click', function (e) {
         toma = new Tomagatchi('Toma');
         updateMetrics();
         console.log(toma.name);
+        ageTimer();
     } else {
         toma = new Tomagatchi(inputVal);
         updateMetrics();
         console.log(toma.name);
+        ageTimer();
     }
+    $('h1').css({'padding-top': '1%', 'font-size': '4em'});
+
     $('section').removeClass('hidden');
     generateToma();
     rightButtonsController();
+    $('form').css('display', 'none');
+    
 });
-
