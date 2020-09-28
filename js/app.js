@@ -145,7 +145,7 @@ const ageTimer = function () {
             $('.message-text').text('HI FRIEND!');
         }
 
-        if (toma.hunger >= 10 || toma.sleepiness >= 10 || toma.boredom >= 10 || toma.age === 1) {
+        if (toma.hunger >= 10 || toma.sleepiness >= 10 || toma.boredom >= 10 || toma.age === 5) {
             $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Rock2.png')
             $('.message-text').text(`GAME OVER`);
             $toma.css({'animation': 'none'});

@@ -52,7 +52,9 @@ p {
     color: rgb(66, 27, 58);
 }
 
-
+.start-button:hover {
+    background-color: darkcyan;
+}
 
 .gameplay-section {
     background: url(../images/45908.jpg);
@@ -78,10 +80,6 @@ p {
     border-radius: 5%;
     margin: 5px;
 }
-
-/* .action-buttons:hover {
-    background-color: #68D6C3;
-} */
 
 .button-feed {
     display: block;
