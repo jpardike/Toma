@@ -1,4 +1,5 @@
 
+let $toma;
 let toma = null;
 const $nameInput = $('.name-input');
 const $nameButton = $('.name-button');
@@ -30,10 +31,12 @@ const updateMetrics = function () {
 
 // function that generates an image that represents the Tomagatchi
 const generateToma = function () {
-    const $toma = $('<img />');
+    $toma = $('<img />');
     $toma.addClass('toma');
     $toma.attr('src', './images/PixelArt.png');
+    $toma.css({'width': '40px', 'height': 'auto', 'position': 'absolute', 'bottom': '22%'});
     $('.gameplay-section').append($toma);
+    eggTimer();
 };
 
 // create right buttons function
@@ -75,6 +78,15 @@ const rightButtonsController = function () {
     });
 };
 
+// Egg Timer Function
+const eggTimer = function () {
+    const timer = setInterval(function () {
+        $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Dude_Monster.png');
+        clearInterval(timer);
+        console.log('egg timer');
+    }, 3000);
+}
+
 // Age Timer Function
 
 const ageTimer = function () {
@@ -93,6 +105,12 @@ const ageTimer = function () {
             toma.age++;
             ageCounter = 0;
         }
+
+        if (toma.age === 2) {
+            $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster.png');
+            $toma.css({'width': '60px'});
+        }
+        
     }, 5000);
 }
 
