@@ -58,19 +58,19 @@ const rightButtonsController = function () {
     // button events to interact with tomagatchi
     $feedButton.on('click', function () {
         console.log('feed button clicked');
-        toma.hunger = 1;
+        toma.hunger = 0;
         updateMetrics();
     });
 
     $sleepButton.on('click', function () {
         console.log('sleep button clicked');
-        toma.sleepiness = 1;
+        toma.sleepiness = 0;
         updateMetrics();
     });
 
     $exerciseButton.on('click', function () {
         console.log('exercise button clicked');
-        toma.boredom = 1;
+        toma.boredom = 0;
         updateMetrics();
     });
 };
@@ -79,13 +79,13 @@ const rightButtonsController = function () {
 
 const ageTimer = function () {
     const timer = setInterval(function () {
-        toma.hunger += 2;
-        toma.sleepiness += 2;
-        toma.boredom += 2;
+        toma.hunger += 1;
+        toma.sleepiness += 1;
+        toma.boredom += 1;
         ageCounter += 1;
         updateMetrics();
 
-        if (toma.hunger && toma.sleepiness && toma.boredom === 10) {
+        if (toma.hunger >= 10 || toma.sleepiness >= 10 || toma.boredom >= 10) {
             $('.message-text').text(`GAME OVER`);
         }
 
@@ -93,7 +93,7 @@ const ageTimer = function () {
             toma.age++;
             ageCounter = 0;
         }
-    }, 1000);
+    }, 5000);
 }
 
 $('.start-button').on('click', function (e) {
