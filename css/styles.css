@@ -55,7 +55,8 @@ p {
 
 
 .gameplay-section {
-    background-color: gainsboro;
+    background: url(../images/45908.jpg);
+    background-size: contain;
     height: 75vh;
     width: 80vw;
     margin: 0 auto;
