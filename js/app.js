@@ -64,6 +64,8 @@ const rightButtonsController = function () {
         // console.log('feed button clicked');
         toma.hunger = 0;
         $feedButton.css('background-color', 'darkcyan');
+        $toma.css({'animation': 'shake 2s', 'animation-iteration-count': '1'});
+        animationReset();
         updateMetrics();
     });
 
@@ -76,6 +78,17 @@ const rightButtonsController = function () {
         }
     );
 
+    $sleepButton.on('click', function () {
+        // console.log('sleep button clicked');
+        toma.sleepiness = 0;
+        $sleepButton.css('background-color', 'darkcyan');
+        $('.gameplay-section').addClass('dark');
+        $toma.css({'animation': 'sleep 5s', 'animation-iteration-count': '1'});
+        darkTimer();
+        animationReset();
+        updateMetrics();
+    });
+        
     $sleepButton.hover(
         function () {
         $sleepButton.css('background-color', '#68D6C3');
@@ -85,35 +98,45 @@ const rightButtonsController = function () {
         }
     );
 
+    $exerciseButton.on('click', function () {
+        // console.log('exercise button clicked');
+        toma.boredom = 0;
+        $exerciseButton.css('background-color', 'darkcyan');
+        $toma.css({'animation': 'move 2s ease-in-out alternate', 'animation-iteration-count': '3'});
+        animationReset();
+        updateMetrics();
+    });
+
     $exerciseButton.hover(
         function () {
-        $exerciseButton.css('background-color', '#68D6C3');
+            $exerciseButton.css('background-color', '#68D6C3');
         },
         function () {
             $exerciseButton.css('background-color', 'darkcyan');
         }
     );
-
-    $sleepButton.on('click', function () {
-        // console.log('sleep button clicked');
-        toma.sleepiness = 0;
-        $sleepButton.css('background-color', 'darkcyan');
-        updateMetrics();
-    });
-
-    $exerciseButton.on('click', function () {
-        // console.log('exercise button clicked');
-        toma.boredom = 0;
-        $exerciseButton.css('background-color', 'darkcyan');
-        updateMetrics();
-    });
 };
+
+// Dark timer function 
+const darkTimer = function () {
+    const timer = setInterval(function () {
+        $('.gameplay-section').removeClass('dark');
+    }, 3000);
+}
 
 // Egg Timer Function
 const eggTimer = function () {
     const timer = setInterval(function () {
         $toma.css({'animation': 'move 30s ease-in-out alternate', 'animation-iteration-count': 'infinite'});
         $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Dude_Monster.png');
+        clearInterval(timer);
+    }, 3000);
+}
+
+// animation reset timer
+const animationReset = function () {
+    const timer = setInterval(function () {
+        $toma.css({'animation': 'move 30s ease-in-out alternate', 'animation-iteration-count': 'infinite'});
         clearInterval(timer);
     }, 3000);
 }
@@ -133,7 +156,7 @@ const ageTimer = function () {
             $('.button-feed').css('background-color', 'red');
         }
         if (toma.sleepiness >= 8) {
-            $('.message-text').text('I don\'t feel so well...');
+            $('.message-text').text('I\'m so sleepy...');
             $('.button-sleep').css('background-color', 'red');
         }
         if (toma.boredom >= 8) {
@@ -162,7 +185,7 @@ const ageTimer = function () {
             $toma.css({'width': '60px'});
         }
 
-    }, 5000);
+    }, 2000);
 }
 
 $('.start-button').on('click', function (e) {
