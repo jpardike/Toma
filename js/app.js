@@ -33,6 +33,7 @@ const updateMetrics = function () {
 const generateToma = function () {
     $toma = $('<img />');
     $toma.addClass('toma');
+    $toma.css({'animation': 'shake 0.5s', 'animation-iteration-count': 'infinite'});
     $toma.attr('src', './images/PixelArt.png');
     $toma.css({'width': '40px', 'height': 'auto', 'position': 'absolute', 'bottom': '22%'});
     $('.gameplay-section').append($toma);
@@ -81,9 +82,9 @@ const rightButtonsController = function () {
 // Egg Timer Function
 const eggTimer = function () {
     const timer = setInterval(function () {
+        $toma.css({'animation': 'move 30s ease-in-out alternate', 'animation-iteration-count': 'infinite'});
         $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Dude_Monster.png');
         clearInterval(timer);
-        console.log('egg timer');
     }, 3000);
 }
 
@@ -97,8 +98,25 @@ const ageTimer = function () {
         ageCounter += 1;
         updateMetrics();
 
+        if (toma.hunger === 8) {
+            $('.message-text').text('I\'m so hungry...');
+        }
+        if (toma.sleepiness === 8) {
+            $('.message-text').text('I don\'t feel so well...');
+        }
+        if (toma.sleepiness === 8) {
+            $('.message-text').text('This is boring...');
+        }
+
+        if (toma.hunger <= 7 && toma.sleepiness <= 7 && toma.boredom <= 7) {
+            $('.message-text').text('HI FRIEND!');
+        }
+
         if (toma.hunger >= 10 || toma.sleepiness >= 10 || toma.boredom >= 10) {
+            $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Rock2.png')
             $('.message-text').text(`GAME OVER`);
+            $toma.css({'animation': 'none'});
+            clearInterval(timer);
         }
 
         if (ageCounter === 10) {
@@ -110,7 +128,7 @@ const ageTimer = function () {
             $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster.png');
             $toma.css({'width': '60px'});
         }
-        
+
     }, 5000);
 }
 
