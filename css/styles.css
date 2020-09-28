@@ -79,6 +79,10 @@ p {
     margin: 5px;
 }
 
+.action-buttons:hover {
+    background-color: #68D6C3;
+}
+
 .button-feed {
     display: block;
 }
