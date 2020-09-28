@@ -63,18 +63,48 @@ const rightButtonsController = function () {
     $feedButton.on('click', function () {
         // console.log('feed button clicked');
         toma.hunger = 0;
+        $feedButton.css('background-color', 'darkcyan');
         updateMetrics();
     });
+
+    $feedButton.hover(
+        function () {
+        $feedButton.css('background-color', '#68D6C3');
+        },
+        function () {
+            $feedButton.css('background-color', 'darkcyan');
+        }
+    );
+
+    $sleepButton.hover(
+        function () {
+        $sleepButton.css('background-color', '#68D6C3');
+        },
+        function () {
+            $sleepButton.css('background-color', 'darkcyan');
+        }
+    );
+
+    $exerciseButton.hover(
+        function () {
+        $exerciseButton.css('background-color', '#68D6C3');
+        },
+        function () {
+            $exerciseButton.css('background-color', 'darkcyan');
+        }
+    );
 
     $sleepButton.on('click', function () {
         // console.log('sleep button clicked');
         toma.sleepiness = 0;
+        $sleepButton.css('background-color', 'darkcyan');
         updateMetrics();
     });
 
     $exerciseButton.on('click', function () {
         // console.log('exercise button clicked');
         toma.boredom = 0;
+        $exerciseButton.css('background-color', 'darkcyan');
         updateMetrics();
     });
 };
@@ -98,21 +128,24 @@ const ageTimer = function () {
         ageCounter += 1;
         updateMetrics();
 
-        if (toma.hunger === 8) {
+        if (toma.hunger >= 8) {
             $('.message-text').text('I\'m so hungry...');
+            $('.button-feed').css('background-color', 'red');
         }
-        if (toma.sleepiness === 8) {
+        if (toma.sleepiness >= 8) {
             $('.message-text').text('I don\'t feel so well...');
+            $('.button-sleep').css('background-color', 'red');
         }
-        if (toma.sleepiness === 8) {
+        if (toma.boredom >= 8) {
             $('.message-text').text('This is boring...');
+            $('.button-exercise').css('background-color', 'red');
         }
 
         if (toma.hunger <= 7 && toma.sleepiness <= 7 && toma.boredom <= 7) {
             $('.message-text').text('HI FRIEND!');
         }
 
-        if (toma.hunger >= 10 || toma.sleepiness >= 10 || toma.boredom >= 10) {
+        if (toma.hunger >= 10 || toma.sleepiness >= 10 || toma.boredom >= 10 || toma.age === 1) {
             $toma.attr('src', './images/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Rock2.png')
             $('.message-text').text(`GAME OVER`);
             $toma.css({'animation': 'none'});
