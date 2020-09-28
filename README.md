@@ -22,3 +22,11 @@ jquery - Used for event handling and adding html and css
 ## Approach
 
 I started with making a static page in HTML by adding the title and the gameplay section. I used placeholder images so I could work on the functionality of the game. I used a class to create the tomagatchi and then did most of the manipulation using jquery. After, I started adding the styling and more functions. I took some time to work out any bugs and tweak the styles further. I plan to update the game at a later date since I still have some ideas of how I want the game to grow.
+
+## Resources
+
+Background image for game - https://www.freepik.com/free-vector/arcade-game-world-pixel-scene_4815143.htm#page=1&query=pixel%20art&position=28
+
+Character images - https://www.freepik.com/vectors/vintage">Vintage vector created by stockgiu - www.freepik.com
+
+Body background image - https://www.pexels.com/photo/photo-of-forest-with-fog-1671324/
