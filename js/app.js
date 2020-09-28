@@ -32,7 +32,7 @@ const updateMetrics = function () {
 const generateToma = function () {
     const $toma = $('<img />');
     $toma.addClass('toma');
-    $toma.attr('src', 'https://picsum.photos/id/1025/50');
+    $toma.attr('src', './images/PixelArt.png');
     $('.gameplay-section').append($toma);
 };
 
