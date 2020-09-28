@@ -47,13 +47,13 @@ const rightButtonsController = function () {
     $('.gameplay-section').append($newDiv);
 
     const $feedButton = $('<button>FEED</button>');
-    $feedButton.addClass('button-feed');
+    $feedButton.addClass('button-feed action-buttons');
 
     const $sleepButton = $('<button>SLEEP</button>');
-    $sleepButton.addClass('button-sleep');
+    $sleepButton.addClass('button-sleep action-buttons');
 
     const $exerciseButton = $('<button>EXERCISE</button>');
-    $exerciseButton.addClass('button-exercise');
+    $exerciseButton.addClass('button-exercise action-buttons');
 
     $newDiv.append($feedButton);
     $newDiv.append($sleepButton);
@@ -61,19 +61,19 @@ const rightButtonsController = function () {
 
     // button events to interact with tomagatchi
     $feedButton.on('click', function () {
-        console.log('feed button clicked');
+        // console.log('feed button clicked');
         toma.hunger = 0;
         updateMetrics();
     });
 
     $sleepButton.on('click', function () {
-        console.log('sleep button clicked');
+        // console.log('sleep button clicked');
         toma.sleepiness = 0;
         updateMetrics();
     });
 
     $exerciseButton.on('click', function () {
-        console.log('exercise button clicked');
+        // console.log('exercise button clicked');
         toma.boredom = 0;
         updateMetrics();
     });
